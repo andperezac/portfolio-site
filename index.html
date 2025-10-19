@@ -3,20 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Perf: preconnect fonts you actually use -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- SEO: a clear description for link previews/search -->
+    <meta name="description" content="Andrea Perez-Acosta — self-taught full-stack developer. 6 months, zero excuses. Projects, stack, and contact on a smooth one-page portfolio." />
+
     <title>Andrea Perez-Acosta | Self-Taught Developer</title>
 
-    <!-- CSS  Style Sheet-->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <header class="navbar">
-      <h1>Andrea Perez-Acosta</h1>
-      <nav>
+    <!-- Accessibility: keyboard users can jump past nav -->
+    <a class="skip-link" href="#home">Skip to content</a>
+
+    <header class="navbar" role="banner">
+      <!-- Make the brand a home anchor for single-page UX -->
+      <a href="#home" class="brand" aria-label="Back to top">Andrea Perez-Acosta</a>
+
+      <nav aria-label="Primary">
         <ul>
+          <!-- Add 'Home' and make anchors match section IDs -->
+          <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -24,37 +37,72 @@
       </nav>
     </header>
 
-    <main>
-      <section id="hero" class="hero">
-        <h2>6 Months. Zero Excuses. <span class="highlight">Full Stack or Nothing.</span></h2>
-        <p>I gave myself 6 months to become a full-stack developer. No shortcuts, no excuses — just raw consistency, late nights, and code until it clicks.</p>
-        <a href="#projects" class="btn">View My Work</a>
+    <main id="home">
+      <!-- HERO -->
+      <section id="hero" class="hero section" data-section>
+        <h1 class="hero-title" data-reveal>
+          6 Months. Zero Excuses. <span class="highlight">Full Stack or Nothing.</span>
+        </h1>
+        <p class="hero-tagline" data-reveal>
+          6 Months. Zero Excuses. Full Stack or Nothing.
+        <br>Self-taught developer turning caffeine into code.
+        </p>
+      
+        
+        <a href="#projects" class="btn btn-primary magnet" rel="noopener" data-reveal>
+          View My Work
+        </a>
       </section>
 
-      <section id="projects" class="projects">
-        <h2>Featured Projects</h2>
+      <!-- ABOUT Section-->
+      <section id="about" class="about section" data-section>
+        <h2 data-reveal>How I got dangerous in 6 months</h2>
+        <p data-reveal>
+          Caffeine + curiosity → shipping. I learn by building: small wins, honest refactors, real deployments. From idea to production with clean code.
+        </p>
+        <ul class="pill-row" data-reveal>
+          <li>React / Next.js</li>
+          <li>Node / Express</li>
+          <li>Postgres</li>
+          <li>Auth & JWT</li>
+          <li>CI/CD</li>
+          <li>Security basics</li>
+        </ul>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="projects section" data-section>
+        <h2 data-reveal>Featured Projects</h2>
+
         <div class="project-grid">
-          <!-- Each project will go here -->
-          <div class="project-card">
+          <article class="project-card" data-reveal>
             <h3>Portfolio Site</h3>
-            <p>A responsive personal site built with HTML, CSS, and JavaScript.</p>
-            <a href="#" target="_blank">View Project</a>
-          </div>
+            <p>A responsive single-page portfolio with scroll choreography and subtle animations.</p>
+            <div class="project-links">
+              <a href="#" target="_blank" rel="noopener">Live</a>
+              <a href="#" target="_blank" rel="noopener">Repo</a>
+            </div>
+          </article>
+
+          <!-- Add for an additional project -->
         </div>
       </section>
 
-      <section id="contact" class="contact">
-        <h2>Get In Touch</h2>
-        <p>Let’s build something incredible together.</p>
-        <a href="mailto:andperezac@gmail.com" class="btn">Say Hello</a>
+      <!-- CONTACT -->
+      <section id="contact" class="contact section" data-section>
+        <h2 data-reveal>Get In Touch</h2>
+        <p data-reveal>Let’s build something clean and bold.</p>
+        <a href="mailto:andperezac@gmail.com" class="btn btn-primary magnet" data-reveal>
+          Say Hello
+        </a>
       </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
       <p>&copy; 2025 Andrea Perez-Acosta. Built with 💻 and ☕</p>
     </footer>
 
-    <!-- JS -->
-    <script src="script.js"></script>
+    <!-- Javascript-->
+    <script src="script.js" defer></script>
   </body>
 </html>

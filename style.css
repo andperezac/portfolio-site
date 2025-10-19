@@ -3,8 +3,8 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #2e2b2b;
-  color: #f1f2f1;
+  background-color: #f9f6ef;
+  color: #1b1b1b;
   font-family: "Inter", sans-serif;
   display: flex;
   flex-direction: column;
@@ -38,7 +38,7 @@ h1, h2, h3 {
 
 .navbar a {
   text-decoration: none;
-  color: #d5d8d6;
+  color: #1b1b1b;
   font-weight: 500;
   transition: color 0.2s ease;
 }
@@ -80,5 +80,5 @@ footer {
   margin-top: auto;
   padding: 2rem 0;
   font-size: 0.9rem;
-  color: #b0b3b2;
+  color: #1b1b1b;
 }

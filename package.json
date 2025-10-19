@@ -2,5 +2,10 @@
   "devDependencies": {
     "eslint": "^9.38.0",
     "prettier": "^3.6.2"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.6",
+    "@react-three/fiber": "^9.4.0",
+    "three": "^0.180.0"
   }
 }
