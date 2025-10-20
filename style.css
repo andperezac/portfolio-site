@@ -1,5 +1,6 @@
 /* ---------- Global Styles ---------- */
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -12,7 +13,9 @@ html, body {
 }
 
 /* ---------- Headings ---------- */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: "Space Grotesk", sans-serif;
   font-weight: 600;
   letter-spacing: -0.02em;
@@ -22,7 +25,7 @@ h1, h2, h3 {
 /* ---------- Navbar ---------- */
 .navbar {
   display: flex;
-  flex-direction: column;  /* stacks name above menu */
+  flex-direction: column; /* stacks name above menu */
   align-items: center;
   padding: 2rem 0 1rem 0;
   gap: 0.5rem;
@@ -44,7 +47,7 @@ h1, h2, h3 {
 }
 
 .navbar a:hover {
-  color: #00c896; 
+  color: #00c896;
 }
 
 /* ---------- Layout ---------- */
