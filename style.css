@@ -85,3 +85,76 @@ footer {
   font-size: 0.9rem;
   color: #1b1b1b;
 }
+
+/* ---------- Utility Classes ---------- */
+.pill-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.pill-row img {
+  width: 50px;
+  height: auto;
+  transition: transform 0.2s ease;
+}
+
+.pill-row img:hover {
+  transform: scale(1.1);
+}
+
+.progress {
+  max-width: 720px;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+/* Progress bar base */
+#consistency-progress .bar {
+  position: relative;
+  height: 14px;
+  background: #e8e8e8;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+/* Progress fill */
+#consistency-progress .bar::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--pct, 0%); /* driven by JS */
+  background: linear-gradient(90deg, #4ade80, #22c55e);
+  transition: width 400ms ease;
+}
+
+/* Circular thumb marker */
+#consistency-progress .thumb {
+  position: absolute;
+  top: -4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: left 400ms ease;
+}
+
+/* Text below bar */
+#consistency-progress .meta {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* Bold percentage text */
+#consistency-progress .pct {
+  font-weight: 600;
+}
