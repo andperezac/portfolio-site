@@ -2,43 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Perf: preconnect fonts you actually use -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- SEO: a clear description for link previews/search -->
-    <meta
-      name="description"
-      content="Andrea Perez-Acosta — self-taught full-stack developer. 6 months, zero excuses. Projects, stack, and contact on a smooth one-page portfolio."
-    />
-
-    <title>Andrea Perez-Acosta | Self-Taught Developer</title>
-
-    <!-- CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Andrea Perez-Acosta | Full-Stack Developer</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
-    <!-- Accessibility: keyboard users can jump past nav -->
-    <a class="skip-link" href="#home">Skip to content</a>
-
-    <header class="navbar" role="banner">
-      <!-- Make the brand a home anchor for single-page UX -->
-      <a href="#home" class="brand" aria-label="Back to top"
-        >Andrea Perez-Acosta</a
-      >
-
+    <header id="site-header" class="navbar">
+      <h1>Andrea Perez-Acosta</h1>
       <nav aria-label="Primary">
         <ul>
-          <!-- Add 'Home' and make anchors match section IDs -->
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
+          <li><a href="#home">About</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -46,107 +19,85 @@
     </header>
 
     <main id="home">
-      <!-- HERO -->
-      <section id="hero" class="hero section" data-section>
-        <h1 class="hero-title" data-reveal>
-          6 Months. Zero Excuses.
-          <span class="highlight">Full Stack or Nothing.</span>
-        </h1>
-        <p class="hero-tagline" data-reveal>
-          6 Months. Zero Excuses. Full Stack or Nothing.
-          <br />Turning caffeine into code.
-        </p>
+      <section class="reveal">
+        <h2>6 Months. Zero Excuses. Full Stack or Nothing.</h2>
+        <p>Turning caffeine into code.</p>
+        <a class="btn" href="#projects">View My Work</a>
+      </section>
 
-        <a
-          href="#projects"
-          class="btn btn-primary magnet"
-          rel="noopener"
-          data-reveal
+      <!-- Consistency Project -->
+      <section class="progress reveal" aria-labelledby="consistency-title">
+        <h2 id="consistency-title">The Consistency Project</h2>
+        <p class="muted">Progress</p>
+
+        <!-- Progress widget -->
+        <div
+          id="consistency-progress"
+          role="progressbar"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          data-start="2025-10-19"
+          data-end="2026-04-19"
         >
-          View My Work
-        </a>
-      </section>
-
-      <!-- ABOUT Section-->
-      <section id="about" class="about section" data-section>
-        <h2 data-reveal>The Consistency Project</h2>
-        <section class="progress">
-          <h3>The Consistency Project — Progress</h3>
-
-          <!-- Progress bar date config needed. -->
-          <div
-            id="consistency-progress"
-            data-start="2025-10-19"
-            data-end="2026-04-19"
-            aria-label="Project progress"
-            role="progressbar"
-            aria-valuemin="0"
-            aria-valuemax="100"
-            aria-valuenow="0"
-          >
-            <div class="bar"><span class="thumb"></span></div>
-            <div class="meta">
-              <span class="pct">0%</span>
-              <span class="timer">0 days remaining</span>
-            </div>
+          <div class="bar"></div>
+          <div class="thumb" aria-hidden="true"></div>
+          <div class="meta">
+            <span class="pct">0%</span>
+            <span class="timer">—</span>
           </div>
-        </section>
-
-        <p data-reveal>
-          A six-month personal initiative focused on discipline, learning, and
-          full-stack development. Building real projects with React, Node, and
-          SQL while sharpening the fundamentals of modern web engineering.
-        </p>
-        <ul class="pill-row" data-reveal>
-          <img src="images/htmlIcon.png" alt="HTML5 Icon" />
-          <img src="images/cssIcon.png" alt="CSS3 Icon" />
-          <img src="images/jsIcon.png" alt="JavaScript Icon" />
-          <img src="images/nodeJsIcon.png" alt="Node.js Icon" />
-          <img src="images/reactJsIcon.png" alt="React Icon" />
-          <img src="images/sqlIcon.png" alt="SQL Icon" />
-        </ul>
-      </section>
-
-      <!-- PROJECTS -->
-      <section id="projects" class="projects section" data-section>
-        <h2 data-reveal>Featured Projects</h2>
-
-        <div class="project-grid">
-          <article class="project-card" data-reveal>
-            <h3>Portfolio Site</h3>
-            <p>
-              A responsive single-page portfolio with scroll choreography and
-              subtle animations.
-            </p>
-            <div class="project-links">
-              <a href="#" target="_blank" rel="noopener">Live</a>
-              <a href="#" target="_blank" rel="noopener">Repo</a>
-            </div>
-          </article>
-
-          <!-- Add for an additional project -->
         </div>
       </section>
 
-      <!-- CONTACT -->
-      <section id="contact" class="contact section" data-section>
-        <h2 data-reveal>Get In Touch</h2>
-        <p data-reveal>Let’s build something clean and bold.</p>
+      <!-- Tech stack -->
+      <section class="reveal">
+        <div class="pill-row" aria-label="Tech stack">
+          <img class="icon icon--lg" src="images/htmlIcon.png" alt="HTML" />
+          <img class="icon icon--lg" src="images/cssIcon.png" alt="CSS" />
+          <img class="icon icon--lg" src="images/jsIcon.png" alt="JavaScript" />
+          <img
+            class="icon icon--lg"
+            src="images/nodeJsIcon.png"
+            alt="Node.js"
+          />
+          <img class="icon icon--lg" src="images/reactJsIcon.png" alt="React" />
+          <img class="icon icon--lg" src="images/sqlIcon.png" alt="SQL" />
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="reveal">
+        <h2>Featured Projects</h2>
         <a
-          href="mailto:andperezac@gmail.com"
-          class="btn btn-primary magnet"
-          data-reveal
+          class="card"
+          href="https://example.com"
+          target="_blank"
+          rel="noopener"
         >
-          Say Hello
+          Portfolio Site — smooth scroll choreography and subtle animations.
+        </a>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="contact reveal">
+        <h2>Get In Touch</h2>
+        <a href="mailto:andperezac@gmail.com"
+          ><img src="images/mailIcon.png" alt="Email"
+        /></a>
+        <a href="https://github.com/andperezac" target="_blank" rel="noopener">
+          <img src="images/gitHubIcon.png" alt="GitHub" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/andperezac/"
+          target="_blank"
+          rel="noopener"
+        >
+          <img src="images/linkedInIcon.png" alt="LinkedIn" />
         </a>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <p>&copy; 2025 Andrea Perez-Acosta. Built with 💻 and ☕</p>
-    </footer>
+    <footer>© <span id="year"></span> Andrea Perez-Acosta</footer>
 
-    <!-- Javascript-->
     <script src="script.js" defer></script>
   </body>
 </html>
