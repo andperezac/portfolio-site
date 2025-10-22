@@ -3,9 +3,7 @@
   document.getElementById("year")?.append(new Date().getFullYear());
 
   // Respect reduced motion
-  const prefersReduced = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---------------- Progress Widget ---------------- */
   (function progressWidget() {
@@ -13,23 +11,28 @@
     if (!container) return;
 
     const startISO = container.dataset.start;
-    const endISO = container.dataset.end;
+    const endISO   = container.dataset.end;
     if (!startISO || !endISO) {
       console.warn("Progress: start/end dates missing.");
       return;
     }
 
-    // Date math
+    // ---------- FIXED DATE + PROGRESS LOGIC ----------
     const start = new Date(startISO + "T00:00:00");
-    const end = new Date(endISO + "T23:59:59");
-    const now = new Date();
+    const end   = new Date(endISO + "T23:59:59");
+    const now   = new Date();
 
-    const total = Math.max(end - start, 1);
-    const elapsed = Math.min(Math.max(now - start, 0), total);
-    const pctFloat = elapsed / total; // 0..1
-    const pctTarget = Math.round(pctFloat * 100); // 0..100
-    const msPerDay = 24 * 60 * 60 * 1000;
-    const daysTarget = Math.max(0, Math.ceil((end - now) / msPerDay));
+    const msPerDay   = 24 * 60 * 60 * 1000;
+    const totalDays  = Math.max(1, Math.ceil((end - start) / msPerDay));
+    const daysElapsed = Math.min(
+      Math.max(Math.floor((now - start) / msPerDay), 0),
+      totalDays
+    );
+
+    const pctFloat   = daysElapsed / totalDays;
+    const pctTarget  = Math.ceil(pctFloat * 100);
+    const daysTarget = Math.max(0, totalDays - daysElapsed);
+    // -------------------------------------------------
 
     // DOM
     const bar = container.querySelector(".bar");
@@ -92,12 +95,9 @@
     animateNumber(pctEl, pctTarget, 700);
     if (daysEl) {
       animateNumber(daysEl, daysTarget, 800);
-      setTimeout(
-        () => {
-          daysEl.textContent = `${daysTarget} day${daysTarget !== 1 ? "s" : ""} remaining`;
-        },
-        prefersReduced ? 0 : 820
-      );
+      setTimeout(() => {
+        daysEl.textContent = `${daysTarget} day${daysTarget !== 1 ? "s" : ""} remaining`;
+      }, prefersReduced ? 0 : 820);
     }
 
     // ARIA
@@ -120,9 +120,7 @@
   /* ---------------- Reveal-on-scroll ---------------- */
   (function revealOnScroll() {
     if (prefersReduced) {
-      document
-        .querySelectorAll(".reveal")
-        .forEach((el) => el.classList.add("in-view"));
+      document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in-view"));
       return;
     }
     const io = new IntersectionObserver(
